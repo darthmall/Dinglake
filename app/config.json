@@ -1,0 +1,43 @@
+[
+  {
+    name: "Ice & Water"
+    key: "a",
+    files: []
+  }, {
+    name: "Crash",
+    key: "w",
+    files: []
+  }, {
+    name: "Glass",
+    key: "s",
+    files: []
+  }, {
+    name: "Chug Slam",
+    key: "d",
+    files: []
+  }, {
+    name: "Match",
+    key: "f",
+    files: []
+  }, {
+    name: "Cheers",
+    key: "g",
+    files: []
+  }, {
+    name: "Cig",
+    key: "&", // Up
+    files: []
+  }, {
+    name: "Potlid",
+    key: "'", // Right
+    files: []
+  }, {
+    name: "Wine Pour",
+    key: "(", // Down
+    files: []
+  }, {
+    name: "Water Spill",
+    key: "%", // Left
+    files: []
+  }
+]
