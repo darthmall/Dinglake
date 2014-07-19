@@ -12,15 +12,19 @@
     }
 
     Dinglake.prototype.loadConfiguration = function (data) {
-        var self = this;
+        var sounds = {};
 
         data.forEach(function (v) {
-            if (self.sounds.hasOwnProperty(v.key)) {
+            var key = v.key.toLowerCase();
+
+            if (sounds.hasOwnProperty(key)) {
                 throw new Error('Bad Configuration: duplicate key binding for \'' + v.key + '\'');
             }
+
+            sounds[key] = {};
         });
 
-
+        this.sounds = sounds;
     };
 
     exports.Dinglake = Dinglake;

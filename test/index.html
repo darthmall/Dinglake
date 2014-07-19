@@ -8,16 +8,17 @@
 </head>
 <body>
     <div id="mocha"></div>
+    <script src="vendor/sinon-1.10.3.js"></script>
     <script src="bower_components/mocha/mocha.js"></script>
     <script>mocha.setup('bdd')</script>
     <script src="bower_components/chai/chai.js"></script>
     <script>
         var assert = chai.assert;
         var expect = chai.expect;
-        var should = chai.should();
     </script>
 
     <!-- include source files here... -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="scripts/Dinglake.js"></script>
 
     <!-- include spec files here... -->
