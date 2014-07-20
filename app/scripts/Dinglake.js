@@ -1,3 +1,4 @@
+/* global SoundArray */
 (function ($, exports) {
     'use strict';
 
@@ -21,7 +22,7 @@
                 throw new Error('Bad Configuration: duplicate key binding for \'' + v.key + '\'');
             }
 
-            sounds[key] = {};
+            sounds[key] = new SoundArray(v.name, v.files);
         });
 
         this.sounds = sounds;

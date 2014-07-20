@@ -8,10 +8,10 @@
 </head>
 <body>
     <div id="mocha"></div>
-    <script src="vendor/sinon-1.10.3.js"></script>
     <script src="bower_components/mocha/mocha.js"></script>
     <script>mocha.setup('bdd')</script>
     <script src="bower_components/chai/chai.js"></script>
+    <script src="vendor/sinon-1.10.3.js"></script>
     <script>
         var assert = chai.assert;
         var expect = chai.expect;
@@ -19,6 +19,7 @@
 
     <!-- include source files here... -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="scripts/SoundArray.js"></script>
     <script src="scripts/Dinglake.js"></script>
 
     <!-- include spec files here... -->
@@ -26,6 +27,6 @@
 
     <script>mocha.run()</script>
 
-    <script src="http://127.0.0.1:35729/livereload.js"></script>
+    <script src="http://127.0.0.1:35730/livereload.js"></script>
 </body>
 </html>
