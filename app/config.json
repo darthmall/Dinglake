@@ -6,38 +6,38 @@
   }, {
     "name": "Crash",
     "key": "w",
-    "files": []
+    "files": ["crash"]
   }, {
     "name": "Glass",
     "key": "s",
-    "files": []
+    "files": ["glass_clink"]
   }, {
     "name": "Chug Slam",
     "key": "d",
-    "files": []
+    "files": ["chug"]
   }, {
     "name": "Match",
     "key": "f",
-    "files": []
+    "files": ["match", "match2"]
   }, {
     "name": "Cheers",
     "key": "g",
-    "files": []
+    "files": ["cheers"]
   }, {
     "name": "Cig",
     "key": "&",
-    "files": []
+    "files": ["cigsizzle"]
   }, {
     "name": "Potlid",
     "key": "'",
-    "files": []
+    "files": ["potlid"]
   }, {
     "name": "Wine Pour",
     "key": "(",
-    "files": []
+    "files": ["winepour"]
   }, {
     "name": "Water Spill",
     "key": "%",
-    "files": []
+    "files": ["waterknockover"]
   }
 ]
