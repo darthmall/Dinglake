@@ -1,43 +1,43 @@
 [
   {
-    name: "Ice & Water"
-    key: "a",
-    files: []
+    "name": "Ice & Water",
+    "key": "a",
+    "files": ["ice", "ice_1", "ice_2", "ice_3"]
   }, {
-    name: "Crash",
-    key: "w",
-    files: []
+    "name": "Crash",
+    "key": "w",
+    "files": []
   }, {
-    name: "Glass",
-    key: "s",
-    files: []
+    "name": "Glass",
+    "key": "s",
+    "files": []
   }, {
-    name: "Chug Slam",
-    key: "d",
-    files: []
+    "name": "Chug Slam",
+    "key": "d",
+    "files": []
   }, {
-    name: "Match",
-    key: "f",
-    files: []
+    "name": "Match",
+    "key": "f",
+    "files": []
   }, {
-    name: "Cheers",
-    key: "g",
-    files: []
+    "name": "Cheers",
+    "key": "g",
+    "files": []
   }, {
-    name: "Cig",
-    key: "&", // Up
-    files: []
+    "name": "Cig",
+    "key": "&",
+    "files": []
   }, {
-    name: "Potlid",
-    key: "'", // Right
-    files: []
+    "name": "Potlid",
+    "key": "'",
+    "files": []
   }, {
-    name: "Wine Pour",
-    key: "(", // Down
-    files: []
+    "name": "Wine Pour",
+    "key": "(",
+    "files": []
   }, {
-    name: "Water Spill",
-    key: "%", // Left
-    files: []
+    "name": "Water Spill",
+    "key": "%",
+    "files": []
   }
 ]

@@ -3,7 +3,8 @@
   "private": true,
   "dependencies": {
     "jquery": ">=2.1.0",
-    "foundation": "~5.3.1"
+    "foundation": "~5.3.1",
+    "ionsound": "~2.0.2"
   },
   "devDependencies": {}
 }
