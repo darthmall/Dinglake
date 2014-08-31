@@ -1,4 +1,4 @@
-/* global describe, expect, it, before, after, afterEach, jQuery, sinon, Dinglake, Random */
+/* global describe, expect, it, before, after, afterEach, jQuery, sinon, Dinglake, Random, Dict */
 
 (function () {
     'use strict';
@@ -148,25 +148,20 @@
 
     describe('Dinglake', function () {
         describe('The constructor', function () {
+            var dl;
+
             before(function () {
                 sinon.spy(jQuery, 'getJSON');
+
+                dl = new Dinglake('config.json');
             });
 
             it('loads the configuration once', function () {
-                new Dinglake('config.json');
-
                 expect(jQuery.getJSON.callCount).to.equal(1);
             });
 
-            it('accepts an empty arguments array', function () {
-                new Dinglake();
-
-                expect(jQuery.getJSON.called).to.be.false;
-            });
-
             it('hashes characters to sounds', function () {
-                var dl = new Dinglake();
-                expect(dl.sounds).to.be.a('object');
+                expect(dl.sounds).to.be.an.instanceOf(Dict);
             });
 
             afterEach(function () {
@@ -194,13 +189,13 @@
                 expect(dl.sounds).not.to.have.property('a');
             });
 
-            it('convert uppercase key bindings to lowercase', function () {
+            it('convert uppercase key bindings to uppercase', function () {
                 var dl = new Dinglake();
-                var config = [{ key: 'A' }];
+                var config = [{ key: 'a' }];
 
                 dl.loadConfiguration(config);
 
-                expect(dl.sounds).to.have.property('a');
+                expect(dl.sounds).to.have.property('A');
             });
 
             it('handles non-alphanumeric key bindings', function () {
