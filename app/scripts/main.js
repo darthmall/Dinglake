@@ -1,5 +1,16 @@
-/* global Dinglake */
+/* global Dinglake, Vue */
 (function () {
     'use strict';
-    new Dinglake('config.json');
+    
+    $.ajax({
+        url: 'config.json',
+        dataType: 'json',
+        success: function (data) {
+            new Dinglake(data);
+            new Vue({
+                el: '#sounds',
+                data: { sounds: data }
+            });
+        }
+    });
 })();

@@ -1,34 +1,27 @@
-/* global Random, Dict */
+/* global Random, Dict, ion */
 (function ($, exports) {
     'use strict';
 
-    function Dinglake(config) {
-        $.getJSON(config)
-            .fail(function () { console.log('Failed to load configuration'); })
-            .then(this.loadConfiguration.bind(this))
-            .then(this.createUI.bind(this));
-
-        $(document).keydown(this.onKeyPress.bind(this));
-    }
-
-    Dinglake.prototype.loadConfiguration = function (data) {
+    function Dinglake(data) {
         var self = this,
             sounds = [];
 
-        this.sounds = new Dict();
+        this.bindings = new Dict();
+
+        $(document).keydown(this.onKeyPress.bind(this));
 
         data.forEach(function (v) {
-            var key = v.key.toLowerCase();
+            var key = v.key.toUpperCase();
 
-            if (self.sounds.has(key)) {
-                throw new Error('Bad Configuration: duplicate key binding for \'' + v.key + '\'');
+            if (self.bindings.has(key)) {
+                throw new Error('Bad Configuration: duplicate key binding for "' + v.key + '"');
             }
 
             v.files.forEach(function (file) {
                 sounds.push({ name: file });
             });
 
-            self.sounds.set(key, new Random.Array(v.files));
+            self.bindings.set(key, new Random.Array(v.files));
         });
 
         ion.sound({
@@ -37,15 +30,11 @@
         });
     };
 
-    Dinglake.prototype.createUI = function () {
-
-    };
-
     Dinglake.prototype.onKeyPress = function (ev) {
-        var key = String.fromCharCode(ev.which).toLowerCase();
+        var key = String.fromCharCode(ev.which);
 
-        if (this.sounds.has(key)) {
-            var sfx = this.sounds.get(key).getNext();
+        if (this.bindings.has(key)) {
+            var sfx = this.bindings.get(key).getNext();
 
             if (sfx) {
                 ion.sound.stop();
