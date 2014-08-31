@@ -29,15 +29,19 @@
                 </div>
             </div>
             <div id="sounds" class="row">
-                <ul>
-                    <li v-repeat="sounds">
-                        <h2>{{ key }}</h2>
-                        <h3>{{ name }}</h3>
-                        <ul>
-                            <li v-repeat="files">{{$value}}</li>
-                    </li>
-                </ul>
-
+                <div class="small-12 columns">
+                    <ul class="sound-effects large-block-grid-4 medium-block-grid-3">
+                        <li v-repeat="sounds">
+                            <h2>
+                                {{ name }}
+                                <span class="binding">{{ key | keycode }}</span>
+                            </h2>
+                            <ul class="small-block-grid-4">
+                                <li v-repeat="files">{{$value}}</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
 
