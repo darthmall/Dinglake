@@ -1,4 +1,4 @@
-/* global describe, expect, it, before, after, afterEach, jQuery, sinon, Dinglake, Random, Dict */
+/* global describe, expect, it, before, after, afterEach, jQuery, sinon, Random, Dict */
 
 (function () {
     'use strict';
@@ -146,86 +146,6 @@
 
     });
 
-    describe('Dinglake', function () {
-        describe('The constructor', function () {
-            var dl;
 
-            before(function () {
-                sinon.spy(jQuery, 'getJSON');
-
-                dl = new Dinglake('config.json');
-            });
-
-            it('loads the configuration once', function () {
-                expect(jQuery.getJSON.callCount).to.equal(1);
-            });
-
-            it('hashes characters to sounds', function () {
-                expect(dl.sounds).to.be.an.instanceOf(Dict);
-            });
-
-            afterEach(function () {
-                jQuery.getJSON.reset();
-            });
-
-            after(function () {
-                jQuery.getJSON.restore();
-            });
-        });
-
-        describe('#loadConfiguration()', function () {
-
-            it('is a function', function () {
-                var dl = new Dinglake();
-                expect(dl.loadConfiguration).to.be.a('function');
-            });
-
-            it('prevents multiple bindings to the same key', function (){
-                var dl = new Dinglake();
-                var badConfig = [{ key: 'a' }, { key: 'a' }];
-                var loadConfiguration = function () { dl.loadConfiguration(badConfig); };
-
-                expect(loadConfiguration).to.throw(Error);
-                expect(dl.sounds).not.to.have.property('a');
-            });
-
-            it('convert uppercase key bindings to uppercase', function () {
-                var dl = new Dinglake();
-                var config = [{ key: 'a' }];
-
-                dl.loadConfiguration(config);
-
-                expect(dl.sounds).to.have.property('A');
-            });
-
-            it('handles non-alphanumeric key bindings', function () {
-                var dl = new Dinglake();
-                var config = [{ key: '%' }];
-
-                dl.loadConfiguration(config);
-
-                expect(dl.sounds).to.have.property('%');
-            });
-
-            it('overwrites the current configuration', function () {
-                var dl = new Dinglake();
-                dl.loadConfiguration([{ key: 'a' }]);
-                dl.loadConfiguration([{ key: 'b' }]);
-
-                expect(dl.sounds).to.have.property('b').and.not.to.have.property('a');
-            });
-
-            it('creates SoundArray objects', function () {
-                var dl = new Dinglake();
-                dl.loadConfiguration([{
-                    key: 'a',
-                    name: 'A',
-                    files: []
-                }]);
-
-                expect(dl.sounds.a).to.be.an.instanceOf(SoundArray);
-            });
-        });
-    });
 
 })();
