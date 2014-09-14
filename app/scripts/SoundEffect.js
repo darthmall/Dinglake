@@ -11,6 +11,7 @@
                     var a = new Audio(v);
                     a.addEventListener('playing', onPlaying);
                     a.addEventListener('ended', onEnded);
+                    a.addEventListener('timeupdate', onUpdate(a));
                     return a;
                 }),
                 iter = itertools.ringIter(audio),
@@ -33,6 +34,13 @@
                 self.$data.playing = false;
                 self.$data.played = true;
             }
+
+            function onUpdate(a) {
+                return function () {
+                    self.$dispatch('playbackProgress', { progress: a.currentTime / a.duration });
+                };
+            }
+
         }
     };
 
