@@ -2,42 +2,42 @@
   {
     "name": "Ice & Water",
     "key": "a",
-    "files": ["ice", "ice_1", "ice_2", "ice_3"]
+    "files": ["/sounds/ice.mp3", "/sounds/ice_1.mp3", "/sounds/ice_2.mp3", "/sounds/ice_3.mp3"]
   }, {
     "name": "Crash",
     "key": "w",
-    "files": ["crash"]
+    "files": ["/sounds/crash.mp3"]
   }, {
     "name": "Glass",
     "key": "s",
-    "files": ["glass_clink"]
+    "files": ["/sounds/glass_clink.mp3"]
   }, {
     "name": "Chug Slam",
     "key": "d",
-    "files": ["chug"]
+    "files": ["/sounds/chug.mp3"]
   }, {
     "name": "Match",
     "key": "f",
-    "files": ["match", "match2"]
+    "files": ["/sounds/match.mp3", "/sounds/match2.mp3"]
   }, {
     "name": "Cheers",
     "key": "g",
-    "files": ["cheers"]
+    "files": ["/sounds/cheers.mp3"]
   }, {
     "name": "Cig",
     "key": "&",
-    "files": ["cigsizzle"]
+    "files": ["/sounds/cigsizzle.mp3"]
   }, {
     "name": "Potlid",
     "key": "'",
-    "files": ["potlid"]
+    "files": ["/sounds/potlid.mp3"]
   }, {
     "name": "Wine Pour",
     "key": "(",
-    "files": ["winepour"]
+    "files": ["/sounds/winepour.mp3"]
   }, {
     "name": "Water Spill",
     "key": "%",
-    "files": ["waterknockover"]
+    "files": ["/sounds/waterknockover.mp3"]
   }
 ]

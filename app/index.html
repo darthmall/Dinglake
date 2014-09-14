@@ -10,6 +10,7 @@
         <!-- build:css styles/vendor.css -->
         <!-- bower:css -->
         <link rel="stylesheet" href="bower_components/foundation/css/foundation.css" />
+        <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
         <!-- endbower -->
         <!-- endbuild -->
 
@@ -22,27 +23,30 @@
         <!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+
         <div class="container">
+
             <div class="row">
                 <div class="small-12 columns">
                     <h1>Dinglake</h1>
                 </div>
             </div>
+
             <div id="sounds" class="row">
                 <div class="small-12 columns">
-                    <ul class="sound-effects large-block-grid-4 medium-block-grid-3">
-                        <li v-repeat="sounds">
+                    <ul class="sound-effects large-block-grid-3 medium-block-grid-3">
+                        <li class="sound" v-repeat="sounds" v-component="sound-effect"
+                            v-class="playing: playing, played: played">
                             <h2>
-                                {{ name }}
+                                {{ name }} <i class="fa fa-volume-up"></i>
                                 <span class="binding">{{ key | keycode }}</span>
                             </h2>
-                            <ul class="small-block-grid-4">
-                                <li v-repeat="files">{{$value}}</li>
-                            </ul>
+                            <span class="play-count">Played: {{ playcount }}</span>
                         </li>
                     </ul>
                 </div>
             </div>
+
         </div>
 
         <!-- build:js scripts/vendor.js -->
@@ -53,16 +57,23 @@
         <script src="bower_components/jquery.cookie/jquery.cookie.js"></script>
         <script src="bower_components/jquery-placeholder/jquery.placeholder.js"></script>
         <script src="bower_components/foundation/js/foundation.js"></script>
-        <script src="bower_components/ionsound/js/ion.sound.js"></script>
         <script src="bower_components/vue/dist/vue.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
         <!-- build:js scripts/main.js -->
         <script src="scripts/Random.js"></script>
-        <script src="scripts/Dict.js"></script>
-        <script src="scripts/Dinglake.js"></script>
+        <script src="scripts/itertools.js"></script>
+        <script src="scripts/SoundEffect.js"></script>
+        <script src="scripts/filters.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
+
+        <script id="soundeffect" type="x-template">
+        <h2>
+            {{ name }}
+            <span class="binding">{{ key | keycode }}</span>
+        </h2>
+        </script>
 </body>
 </html>
