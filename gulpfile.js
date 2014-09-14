@@ -47,20 +47,15 @@ gulp.task('fonts', function () {
 });
 
 gulp.task('extras', function () {
-    return gulp.src(['README.md', 'app/*.*', '!app/*.html'], { dot: true })
+    return gulp.src(['README.md', 'app/*.*', '!app/*.html', 'app/sounds/*.*'], { dot: true })
         .pipe(gulp.dest('dist'));
-});
-
-gulp.task('sounds', function () {
-    return gulp.src(['app/sounds/*.*'])
-        .pipe(gulp.dest('dist/sounds'));
 });
 
 gulp.task('clean', function () {
     return gulp.src(['.tmp', 'dist'], { read: false }).pipe($.clean());
 });
 
-gulp.task('build', ['html', 'fonts', 'extras', 'sounds']);
+gulp.task('build', ['html', 'fonts', 'extras']);
 
 gulp.task('default', ['clean'], function () {
     gulp.start('build');
