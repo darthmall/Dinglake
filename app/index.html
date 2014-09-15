@@ -45,7 +45,10 @@
                                 {{ name }} <i class="fa fa-volume-up"></i>
                                 <span class="binding">{{ key | keycode }}</span>
                             </h2>
-                            <span class="play-count">Played: {{ playcount }}</span>
+                            <p class="play-count">
+                                Played: {{ playcount }}
+                                <span class="current-file">{{ playing | filename }}</span>
+                            </p>
                         </li>
                     </ul>
                 </div>

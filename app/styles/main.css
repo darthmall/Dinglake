@@ -38,10 +38,6 @@ h1, h2, h3, h4, h5, h6 {
     color: #343339;
 }
 
-.played .play-count {
-    visibility: visible;
-}
-
 .sound .fa {
     visibility: hidden;
 }
@@ -54,13 +50,13 @@ h1, h2, h3, h4, h5, h6 {
     visibility: visible;
 }
 
-.play-count {
-    visibility: hidden;
-}
-
 .binding {
     float: right;
     font-weight: bold;
+}
+
+.current-file {
+    float: right;
 }
 
 .browsehappy {

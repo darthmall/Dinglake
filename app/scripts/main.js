@@ -1,4 +1,7 @@
 /* global Vue */
+window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+                              window.webkitRequestAnimationFrame || window.oRequestAnimationFrame;
+
 (function () {
     'use strict';
 
@@ -10,12 +13,28 @@
                 el: '#main',
                 data: { sounds: data },
                 created: function () {
-                    var self = this;
+                    var self = this,
+                        current;
 
                     this.$data.progress = 0;
 
-                    this.$on('playbackProgress', function (data) {
-                        self.$data.progress = data.progress * 100;
+                    function update() {
+                        if (!current) {
+                            return;
+                        }
+
+                        self.$data.progress = current.currentTime / current.duration * 100;
+
+                        if (self.$data.progress < 100 && !current.paused) {
+                            window.requestAnimationFrame(update);
+                        } else {
+                            current = null;
+                        }
+                    }
+
+                    this.$on('playbackStarted', function (data) {
+                        current = data.audio;
+                        update();
                     });
                 },
                 computed: {

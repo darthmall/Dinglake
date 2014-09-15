@@ -13,4 +13,10 @@
 
         return arrows[code - 37];
     });
+
+    Vue.filter('filename', function (value) {
+        var toks = String(value).split('/');
+
+        return value ? toks[toks.length - 1] : '';
+    });
 })();
