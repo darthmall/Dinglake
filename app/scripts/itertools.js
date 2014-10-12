@@ -1,3 +1,5 @@
+'use strict';
+
 (function (exports) {
 
     var itertools = {};
@@ -16,10 +18,6 @@
                 };
             }
         };
-    };
-
-    itertools.randomIter = function (collection) {
-        
     };
 
     exports.itertools = itertools;
