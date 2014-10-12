@@ -17,6 +17,7 @@ Keybindings and sounds can be changed by editing the `config.json` file. The con
 
 - `name`: used for display purposes in the UI
 - `key`: defines the keypress that triggers the sound
+- `trigger`: one of "down", "hold", or "up", default is "up"
 - `files`: an array of filenames without the '.mp3' extension that are used for this sound effect.
 
 ## Arrow keys
