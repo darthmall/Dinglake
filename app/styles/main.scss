@@ -16,22 +16,26 @@ h1, h2, h3, h4, h5, h6 {
     right: 0;
     height: 5px;
     z-index: 999;
+
+    .progress {
+        background-color: #63616f;
+        border: none;
+        height: 100%;
+    }
 }
 
-.progress-bar .progress {
-    background-color: #63616f;
-    border: none;
-    height: 100%;
-}
+.sound-effects {
 
-.sound-effects > li {
-    border-left: 1px solid #63616f;
-    margin-bottom: 2em;
-}
 
-.sound-effects > li:nth-of-type(3n),
-.sound-effects > li:last-child {
-    border-right: 1px solid #63616f;
+    & > li {
+        border-left: 1px solid #63616f;
+        margin-bottom: 2em;
+    }
+
+    & > li:nth-of-type(3n),
+    & > li:last-child {
+        border-right: 1px solid #63616f;
+    }
 }
 
 .played * {
@@ -40,14 +44,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .sound .fa {
     visibility: hidden;
-}
 
-.sound.playing * {
-    color: #63616F;
-}
+    &.playing * {
+        color: #63616F;
+    }
 
-.sound.playing .fa {
-    visibility: visible;
+    &.playing .fa {
+        visibility: visible;
+    }
 }
 
 .binding {
