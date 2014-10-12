@@ -6,6 +6,12 @@
     var SoundEffect = {
         template: '#soundeffect',
         created: function () {
+            function cancel(ev) {
+                if (ev.which === 27) {
+                    stop();
+                }
+            }
+
             function start(ev) {
                 if (String.fromCharCode(ev.which) === key && !self.$data.playing) {
                     current = iter.next().value;
@@ -57,6 +63,8 @@
                     stop();
                 }
             });
+
+            document.addEventListener('keyup', cancel);
 
             switch (this.$data.trigger) {
             case 'down':
