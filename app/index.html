@@ -47,7 +47,7 @@
                             </h2>
                             <p class="play-count">
                                 Played: {{ playcount }}
-                                <a class="current-file" v-on="click: stop($event)">
+                                <a class="current-file" v-on="click: stop()">
                                     {{ playing | filename }}&emsp;<i class="fa fa-stop"></i>
                                 </a>
                             </p>

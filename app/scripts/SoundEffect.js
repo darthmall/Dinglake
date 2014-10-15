@@ -64,6 +64,8 @@
                 }
             });
 
+            this.$on('stopPlayback', function () { stop(); });
+
             document.addEventListener('keyup', cancel);
 
             switch (this.trigger) {
@@ -83,6 +85,12 @@
         computed: {
             playcount: function () {
                 return this.hx.length;
+            }
+        },
+
+        methods: {
+            stop: function () {
+                this.$emit('stopPlayback');
             }
         }
     };
