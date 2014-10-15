@@ -42,8 +42,10 @@ h1, h2, h3, h4, h5, h6 {
     color: #343339;
 }
 
-.sound .fa {
-    visibility: hidden;
+.sound {
+    .fa {
+        visibility: hidden;
+    }
 
     &.playing * {
         color: #63616F;

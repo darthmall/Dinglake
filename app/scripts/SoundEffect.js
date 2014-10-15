@@ -16,8 +16,8 @@
                 if (String.fromCharCode(ev.which) === key && !self.$data.playing) {
                     current = iter.next().value;
 
-                    self.$data.hx.push(current.src);
-                    self.$data.playing = current.src;
+                    self.hx.push(current.src);
+                    self.playing = current.src;
 
                     current.play();
                     self.$dispatch('playbackStarted', { name: self.$data.name, audio: current });
@@ -33,8 +33,8 @@
             }
 
             function onEnded() {
-                self.$data.playing = false;
-                self.$data.played = true;
+                self.playing = false;
+                self.played = true;
                 current = null;
             }
 
@@ -52,21 +52,21 @@
                     return a;
                 }),
                 iter = itertools.ringIter(audio),
-                key = this.$data.key.toUpperCase(),
+                key = this.key.toUpperCase(),
                 current;
 
             this.$data.hx = [];
             this.$data.playing = false;
 
             this.$root.$on('playbackStarted', function (data) {
-                if (data.name !== self.$data.name && current) {
+                if (data.name !== self.name && current && self.interrupt) {
                     stop();
                 }
             });
 
             document.addEventListener('keyup', cancel);
 
-            switch (this.$data.trigger) {
+            switch (this.trigger) {
             case 'down':
                 document.addEventListener('keydown', start);
                 break;
@@ -82,7 +82,7 @@
 
         computed: {
             playcount: function () {
-                return this.$data.hx.length;
+                return this.hx.length;
             }
         }
     };

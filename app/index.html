@@ -42,12 +42,14 @@
                         <li class="sound" v-repeat="sounds" v-component="sound-effect"
                             v-class="playing: playing, played: played">
                             <h2>
-                                {{ name }} <i class="fa fa-volume-up"></i>
+                                {{ name }}&nbsp;<i class="fa fa-volume-up"></i>
                                 <span class="binding">{{ key | keycode }}</span>
                             </h2>
                             <p class="play-count">
                                 Played: {{ playcount }}
-                                <span class="current-file">{{ playing | filename }}</span>
+                                <a class="current-file" v-on="click: stop($event)">
+                                    {{ playing | filename }}&emsp;<i class="fa fa-stop"></i>
+                                </a>
                             </p>
                         </li>
                     </ul>
